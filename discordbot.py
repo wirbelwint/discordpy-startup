@@ -1,8 +1,12 @@
+#coding:UTF-8
 import discord
+from datetime import datetime
 from discord.ext import tasks
-from datetime import datetime 
+from discord.ext import commands
+import os
+import traceback
 
-TOKEN = "DISCORD_BOT_TOKEN"
+token = os.environ['DISCORD_BOT_TOKEN']
 CHANNEL_ID = 808919318359834624 
 client = discord.Client()
 
@@ -10,7 +14,7 @@ client = discord.Client()
 async def loop():
     # 現在の時刻
     now = datetime.now().strftime('%H:%M')
-    if now == '16:39':
+    if now == '16:51':
         channel = client.get_channel(CHANNEL_ID)
         await channel.send('テスト')  
 
