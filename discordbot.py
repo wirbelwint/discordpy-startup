@@ -24,7 +24,7 @@ async def ping(ctx):
 async def loop():
     # 現在の時刻
     now = datetime.now().strftime('%H:%M')
-    if now == '00:23':
+    if now == '17:33':
         channel = client.get_channel(CHANNEL_ID)
         await channel.send('テスト')  
 
