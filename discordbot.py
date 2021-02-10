@@ -1,34 +1,30 @@
-from discord.ext import commands
+import discord
+import urllib.request
+import json
+import re
 import os
-import traceback
+from datetime import datetime, timezone, timedelta
 from discord.ext import tasks
-from datetime import datetime
 
-bot = commands.Bot(command_prefix='/')
 token = os.environ['DISCORD_BOT_TOKEN']
-CHANNEL_ID = 808919318359834624
+channel_id = 808919318359834624
+client = discord.Client()
+JST = timezone(timedelta(hours=+9), "JST")
 
 
-@bot.event
-async def on_command_error(ctx, error):
-    orig_error = getattr(error, "original", error)
-    error_msg = ''.join(traceback.TracebackException.from_exception(orig_error).format())
-    await ctx.send(error_msg)
-
-
-@bot.command()
-async def ping(ctx):
-    await ctx.send('pong')
-
+# timer
 @tasks.loop(seconds=60)
 async def loop():
-    # 現在の時刻
-    now = datetime.now().strftime('%H:%M')
-    if now == '17:33':
-        channel = client.get_channel(CHANNEL_ID)
-        await channel.send('テスト')  
-
-#ループ処理実行
+    now_time = datetime.now(JST).strftime("%H:%M")
+            if now_time == "17:44":
+            msg = "テスト"
+            channel = client.get_channel(channel_id)
+            await channel.send(msg)
+            
+        elif now_time == "23:00":
+            msg = "テスト"
+            channel = client.get_channel(channel_id)
+            await channel.send(msg)
+            
 loop.start()
-
-bot.run(token)
+client.run(token)
