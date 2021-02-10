@@ -17,18 +17,3 @@ async def on_command_error(ctx, error):
 async def ping(ctx):
     await ctx.send('pong')
 
-# 1日に1回ループ
-@tasks.loop(seconds=60)
-async def loop():
-    # 現在の時刻
-    now = datetime.now().strftime('%H:%M')
-    if now == '15:00':
-        channel = client.get_channel(#雑談)
-        await channel.send('テスト')  
-
-#ループ処理実行
-loop.start()
-# Botの起動とDiscordサーバーへの接続
-client.run(TOKEN)
-
-bot.run(token)
