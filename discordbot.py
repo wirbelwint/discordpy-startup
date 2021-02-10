@@ -10,7 +10,7 @@ client = discord.Client()
 async def loop():
     # 現在の時刻
     now = datetime.now().strftime('%H:%M')
-    if now == '16:30':
+    if now == '16:40':
         channel = client.get_channel(CHANNEL_ID)
         await channel.send('テスト')  
 
