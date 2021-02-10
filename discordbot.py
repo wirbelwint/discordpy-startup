@@ -21,8 +21,8 @@ async def ping(ctx):
 async def loop():
     # 現在の時刻
     now = datetime.now().strftime('%H:%M')
-    if now == '15:15':
-        channel = client.get_channel(#雑談)
+    if now == '15:25':
+        channel = client.get_channel(808919318359834624)
         await channel.send('テスト')  
 
 #ループ処理実行
