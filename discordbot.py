@@ -7,6 +7,7 @@ from datetime import datetime
 bot = commands.Bot(command_prefix='/')
 token = os.environ['DISCORD_BOT_TOKEN']
 CHANNEL_ID = 808919318359834624
+client = discord.Client()
 
 
 @bot.event
@@ -24,7 +25,7 @@ async def ping(ctx):
 async def loop():
     # 現在の時刻
     now = datetime.now().strftime('%H:%M')
-    if now == '00:13':
+    if now == '00:23':
         channel = client.get_channel(CHANNEL_ID)
         await channel.send('テスト')  
 
