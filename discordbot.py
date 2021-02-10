@@ -2,7 +2,7 @@ import discord
 from discord.ext import tasks
 from datetime import datetime 
 
-TOKEN = "ODA4OTI1Nzc1OTk0MjkwMjM3.YCNo1g.lKAz63_rVsi5wRytNveRLiEAPaE"
+TOKEN = "DISCORD_BOT_TOKEN"
 CHANNEL_ID = 808919318359834624 
 client = discord.Client()
 
